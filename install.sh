@@ -2,10 +2,11 @@
 set -euo pipefail
 
 # 简短说明：
-# 1) 将以下三行写入 $HOME/.zshrc（可重复运行且不会重复追加）
+# 1) 将以下四行写入 $HOME/.zshrc（可重复运行且不会重复追加）
 #    export ANTHROPIC_BASE_URL="https://cr.api.taotiao.tech/api"
 #    export ANTHROPIC_AUTH_TOKEN="<token>"
 #    export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+#    export DISABLE_TELEMETRY=1
 # 2) 运行: npm install -g @anthropic-ai/claude-code@latest
 
 usage() {
@@ -70,6 +71,7 @@ cat >> "$ZSHRC" <<EOF
 export ANTHROPIC_BASE_URL="https://cr.api.taotiao.tech/api"
 export ANTHROPIC_AUTH_TOKEN="$ESC_TOK"
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
+export DISABLE_TELEMETRY=1
 # <<< claude-code environment variables (managed by script) <<<
 EOF
 
@@ -86,6 +88,10 @@ if command -v npm >/dev/null 2>&1; then
 else
   echo "未检测到 npm。请先安装 Node.js 和 npm，然后运行: npm install -g @anthropic-ai/claude-code@latest"
 fi
+
+# 安装 cccleaner
+echo "执行: 安装 cccleaner..."
+curl -s https://raw.githubusercontent.com/geminiwen/cccleaner/master/install.sh | bash
 
 echo "完成。要立即在当前 shell 生效，请运行： source \"$ZSHRC\" （或打开一个新的终端窗口）。"
 
