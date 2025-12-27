@@ -43,7 +43,12 @@ ZSHRC="$HOME/.zshrc"
 
 if [ "$YES" -ne 1 ]; then
   echo "此脚本将修改: $ZSHRC 并运行 'npm install -g @anthropic-ai/claude-code@latest'。继续吗？ [y/N]"
-  read -r ans
+  if [ -r /dev/tty ]; then
+    read -r ans </dev/tty
+  else
+    echo "警告：无法读取终端输入（非交互式环境？）。请使用 -y 参数跳过确认。"
+    exit 1
+  fi
   if [[ ! "$ans" =~ ^[Yy] ]]; then
     echo "已取消。"
     exit 0
