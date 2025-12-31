@@ -11,6 +11,7 @@
    - `ANTHROPIC_AUTH_TOKEN`: 配置认证 Token
    - `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC`: 禁用非必要流量
    - `DISABLE_TELEMETRY`: 禁用遥测数据收集
+   - `DISABLE_ERROR_REPORTING`: 禁用错误报告
 
 2. 全局安装 `@anthropic-ai/claude-code` npm 包
 

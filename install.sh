@@ -2,11 +2,12 @@
 set -euo pipefail
 
 # 简短说明：
-# 1) 将以下四行写入 $HOME/.zshrc（可重复运行且不会重复追加）
+# 1) 将以下五行写入 $HOME/.zshrc（可重复运行且不会重复追加）
 #    export ANTHROPIC_BASE_URL="https://cr.api.taotiao.tech/api"
 #    export ANTHROPIC_AUTH_TOKEN="<token>"
 #    export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 #    export DISABLE_TELEMETRY=1
+#    export DISABLE_ERROR_REPORTING=1
 # 2) 运行: npm install -g @anthropic-ai/claude-code@latest
 
 usage() {
@@ -77,6 +78,7 @@ export ANTHROPIC_BASE_URL="https://cr.api.taotiao.tech/api"
 export ANTHROPIC_AUTH_TOKEN="$ESC_TOK"
 export CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1
 export DISABLE_TELEMETRY=1
+export DISABLE_ERROR_REPORTING=1
 # <<< claude-code environment variables (managed by script) <<<
 EOF
 
